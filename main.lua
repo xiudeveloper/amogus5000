@@ -20,27 +20,27 @@ TextColor = Color3.fromRGB(255, 255, 255)
 
 -- first page
 local page = venyx:addPage("Main", 5012544693)
-local section1 = page:addSection("Section 1")
-local section2 = page:addSection("Section 2")
+local section1 = page:addSection("Main")
+local section2 = page:addSection("Miscellaneous")
 
-section1:addToggle("Toggle", nil, function(value)
-print("Toggled", value)
-end)
-section1:addButton("Button", function()
-print("Clicked")
+section1:addToggle(
+  "Autofarm",
+  nil,
+  function(value)
+    -- Code below this line
+while value == true do
+      loadstring(game:HttpGet("https://jailbricked.github.io/autofarm.html"))()
+   end
 end)
 
-section2:addKeybind("Toggle Keybind", Enum.KeyCode.One, function()
-print("Activated Keybind")
-venyx:toggle()
-end, function()
-print("Changed Keybind")
-end)
-section2:addColorPicker("ColorPicker", Color3.fromRGB(50, 50, 50))
-section2:addColorPicker("ColorPicker2")
-section2:addSlider("WalkSpeed", 0, 100, function(value)
+section2:addSlider(
+  "WalkSpeed",
+  0,
+  100,
+  function(value)
+   -- Code below this line
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
-end
+end)
 
 -- second page
 local theme = venyx:addPage("Themes", 5012544693)
